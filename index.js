@@ -4,13 +4,13 @@ const inquirer = require('inquirer');
 
 function startApp() {
     console.log(
-`==================================================
+        `==================================================
         Welcome to the 'Build your team' app!
 ===================================================
      `);
 
     function createManager() {
-//prompts for the manager
+        //prompts for the manager
         inquirer.prompt([
             {
                 type: "input",
@@ -63,23 +63,55 @@ function startApp() {
         })
 
         function createTeam() {
-            
+
             return inquirer.prompt([
                 {
-                    type:"list",
-                    name:"memberChoice",
-                    message:"Which member would you like to add to the team?",
-                    choices:[
+                    type: "list",
+                    name: "memberChoice",
+                    message: "Which member would you like to add to the team?",
+                    choices: [
                         "Enginer",
                         "Inter",
                         "Finish Building my Team"
                     ]
                 }
-            ]).then(answer =>{
-                console.log(answer);
+            ]).then(userSelection => {
+                console.log(userSelection);
+                switch (userSelection.memberChoice) {
+                    case "Enginer":
+                        createEngineer();
+                        break;
+                    case "Inter":
+                        createInter();
+                        break;
+                    default:
+                        break;
+                }
             })
         }
     }
+
+    function createEngineer() {
+
+        console.log(`
+================================
+         ADD AN ENGINEER
+================================`);
+        return inquirer.prompt([
+            {
+                type:"input",
+                name:"engineerName",
+                message:"Please provide the Engineer's name",
+                validate: engineerName =>{
+                    if(engineerName){
+                        return true;
+                    }
+                    return "please provide a Name";
+                }
+            }
+        ])
+    }
+
 
     createManager()
 }
