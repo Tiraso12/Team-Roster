@@ -10,7 +10,7 @@ function startApp() {
      `);
 
     function createManager() {
-
+//prompts for the manager
         inquirer.prompt([
             {
                 type: "input",
@@ -57,13 +57,33 @@ function startApp() {
                 }
             }
         ]).then(answers => {
-            console.log(answers);
+            // console.log(answers);
+
+            createTeam();
         })
+
+        function createTeam() {
+            
+            return inquirer.prompt([
+                {
+                    type:"list",
+                    name:"memberChoice",
+                    message:"Which member would you like to add to the team?",
+                    choices:[
+                        "Enginer",
+                        "Inter",
+                        "Finish Building my Team"
+                    ]
+                }
+            ]).then(answer =>{
+                console.log(answer);
+            })
+        }
     }
 
     createManager()
 }
 
 
-
+//launch the app
 startApp();
