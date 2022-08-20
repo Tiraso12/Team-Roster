@@ -99,14 +99,47 @@ function startApp() {
 ================================`);
         return inquirer.prompt([
             {
+                type: "input",
+                name: "engineerName",
+                message: "Please provide the Engineer's name",
+                validate: engineerName => {
+                    if (engineerName) {
+                        return true;
+                    }
+                    return "Please provide a Name";
+                }
+            },
+            {
                 type:"input",
-                name:"engineerName",
-                message:"Please provide the Engineer's name",
+                name:"engineerId",
+                message:"Please provide an ID",
                 validate: engineerName =>{
                     if(engineerName){
                         return true;
                     }
-                    return "please provide a Name";
+                    return "Please provide a valid ID";
+                }
+            },
+            {
+                type:"input",
+                name:"engineerEmail",
+                message:"Please provide an e-mail address",
+                validate: engineerEmail =>{
+                    if(engineerEmail){
+                        return true;
+                    }
+                    return "Please provide a valid e-mail address";
+                }
+            },
+            {
+                type:"input",
+                name:"engineerGithub",
+                message:"Please provide a Github username",
+                validate: engineerGithub =>{
+                    if(engineerGithub){
+                        return true;
+                    }
+                    return "Please provide a valid Github username";
                 }
             }
         ])
