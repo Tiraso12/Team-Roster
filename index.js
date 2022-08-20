@@ -144,6 +144,7 @@ function startApp() {
             }
         ]).then(answers=>{
             console.log(answers);
+            createTeam()
         })
     };
 
@@ -199,6 +200,7 @@ function startApp() {
                     }
                 ]).then(answers=>{
                     console.log(answers);
+                    createTeam()
                 })
     }
 
