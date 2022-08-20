@@ -112,7 +112,7 @@ function startApp() {
             {
                 type:"input",
                 name:"engineerId",
-                message:"Please provide an ID",
+                message:"Please provide an Engineer ID",
                 validate: engineerName =>{
                     if(engineerName){
                         return true;
@@ -142,7 +142,64 @@ function startApp() {
                     return "Please provide a valid Github username";
                 }
             }
-        ])
+        ]).then(answers=>{
+            console.log(answers);
+        })
+    };
+
+    function createInter() {
+        console.log(`
+        ================================
+                 ADD AN INTERN
+        ================================`);
+                return inquirer.prompt([
+                    {
+                        type: "input",
+                        name: "internName",
+                        message: "Please provide the Intern's name",
+                        validate: internName => {
+                            if (internName) {
+                                return true;
+                            }
+                            return "Please provide a Name";
+                        }
+                    },
+                    {
+                        type:"input",
+                        name:"interId",
+                        message:"Please provide an intern ID",
+                        validate: internName =>{
+                            if(internName){
+                                return true;
+                            }
+                            return "Please provide a valid ID";
+                        }
+                    },
+                    {
+                        type:"input",
+                        name:"internEmail",
+                        message:"Please provide an e-mail address",
+                        validate: internEmail =>{
+                            if(internEmail){
+                                return true;
+                            }
+                            return "Please provide a valid e-mail address";
+                        }
+                    },
+                    {
+                        type:"input",
+                        name:"internSchool",
+                        message:"Please provide a School's name",
+                        validate: internSchool =>{
+                            if(internSchool){
+                                return true;
+                            }
+                            return "Please provide a valid school name";
+                        }
+                    }
+                ]).then(answers=>{
+                    console.log(answers);
+                })
     }
 
 
