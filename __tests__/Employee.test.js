@@ -47,3 +47,9 @@ test("get the Email with getEmail function", ()=>{
   
   expect(e.getEmail()).toBe(valor);
 })
+
+test("get the Roke with getRole function", ()=>{
+  const e = new Employee("gonzo",1, "gmail");
+  
+  expect(e.getRole()).toBe("Employee");
+})
