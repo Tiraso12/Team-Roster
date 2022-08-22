@@ -57,38 +57,38 @@ function startApp() {
                 }
             }
         ]).then(answers => {
-            // console.log(answers);
+            console.log(answers);
 
-            createTeam();
+            choiceTeam();
+        });  
+    }
+
+    function choiceTeam() {
+
+        return inquirer.prompt([
+            {
+                type: "list",
+                name: "memberChoice",
+                message: "Which member would you like to add to the team?",
+                choices: [
+                    "Enginer",
+                    "Inter",
+                    "Finish Building my Team"
+                ]
+            }
+        ]).then(userSelection => {
+            console.log(userSelection);
+            switch (userSelection.memberChoice) {
+                case "Enginer":
+                    createEngineer();
+                    break;
+                case "Inter":
+                    createInter();
+                    break;
+                default:
+                    break;
+            }
         })
-
-        function createTeam() {
-
-            return inquirer.prompt([
-                {
-                    type: "list",
-                    name: "memberChoice",
-                    message: "Which member would you like to add to the team?",
-                    choices: [
-                        "Enginer",
-                        "Inter",
-                        "Finish Building my Team"
-                    ]
-                }
-            ]).then(userSelection => {
-                console.log(userSelection);
-                switch (userSelection.memberChoice) {
-                    case "Enginer":
-                        createEngineer();
-                        break;
-                    case "Inter":
-                        createInter();
-                        break;
-                    default:
-                        break;
-                }
-            })
-        }
     }
 
     function createEngineer() {
@@ -110,41 +110,41 @@ function startApp() {
                 }
             },
             {
-                type:"input",
-                name:"engineerId",
-                message:"Please provide an Engineer ID",
-                validate: engineerName =>{
-                    if(engineerName){
+                type: "input",
+                name: "engineerId",
+                message: "Please provide an Engineer ID",
+                validate: engineerName => {
+                    if (engineerName) {
                         return true;
                     }
                     return "Please provide a valid ID";
                 }
             },
             {
-                type:"input",
-                name:"engineerEmail",
-                message:"Please provide an e-mail address",
-                validate: engineerEmail =>{
-                    if(engineerEmail){
+                type: "input",
+                name: "engineerEmail",
+                message: "Please provide an e-mail address",
+                validate: engineerEmail => {
+                    if (engineerEmail) {
                         return true;
                     }
                     return "Please provide a valid e-mail address";
                 }
             },
             {
-                type:"input",
-                name:"engineerGithub",
-                message:"Please provide a Github username",
-                validate: engineerGithub =>{
-                    if(engineerGithub){
+                type: "input",
+                name: "engineerGithub",
+                message: "Please provide a Github username",
+                validate: engineerGithub => {
+                    if (engineerGithub) {
                         return true;
                     }
                     return "Please provide a valid Github username";
                 }
             }
-        ]).then(answers=>{
+        ]).then(answers => {
             console.log(answers);
-            createTeam()
+            choiceTeam();
         })
     };
 
@@ -153,55 +153,55 @@ function startApp() {
         ================================
                  ADD AN INTERN
         ================================`);
-                return inquirer.prompt([
-                    {
-                        type: "input",
-                        name: "internName",
-                        message: "Please provide the Intern's name",
-                        validate: internName => {
-                            if (internName) {
-                                return true;
-                            }
-                            return "Please provide a Name";
-                        }
-                    },
-                    {
-                        type:"input",
-                        name:"interId",
-                        message:"Please provide an intern ID",
-                        validate: internName =>{
-                            if(internName){
-                                return true;
-                            }
-                            return "Please provide a valid ID";
-                        }
-                    },
-                    {
-                        type:"input",
-                        name:"internEmail",
-                        message:"Please provide an e-mail address",
-                        validate: internEmail =>{
-                            if(internEmail){
-                                return true;
-                            }
-                            return "Please provide a valid e-mail address";
-                        }
-                    },
-                    {
-                        type:"input",
-                        name:"internSchool",
-                        message:"Please provide a School's name",
-                        validate: internSchool =>{
-                            if(internSchool){
-                                return true;
-                            }
-                            return "Please provide a valid school name";
-                        }
+        return inquirer.prompt([
+            {
+                type: "input",
+                name: "internName",
+                message: "Please provide the Intern's name",
+                validate: internName => {
+                    if (internName) {
+                        return true;
                     }
-                ]).then(answers=>{
-                    console.log(answers);
-                    createTeam()
-                })
+                    return "Please provide a Name";
+                }
+            },
+            {
+                type: "input",
+                name: "interId",
+                message: "Please provide an intern ID",
+                validate: internName => {
+                    if (internName) {
+                        return true;
+                    }
+                    return "Please provide a valid ID";
+                }
+            },
+            {
+                type: "input",
+                name: "internEmail",
+                message: "Please provide an e-mail address",
+                validate: internEmail => {
+                    if (internEmail) {
+                        return true;
+                    }
+                    return "Please provide a valid e-mail address";
+                }
+            },
+            {
+                type: "input",
+                name: "internSchool",
+                message: "Please provide a School's name",
+                validate: internSchool => {
+                    if (internSchool) {
+                        return true;
+                    }
+                    return "Please provide a valid school name";
+                }
+            }
+        ]).then(answers => {
+            console.log(answers);
+            choiceTeam();
+        })
     }
 
 
