@@ -27,9 +27,16 @@ test("sets the email of the constructor", ()=>{
   expect(e.email).toBe(valor);
 });
 
-test("get the name with get name function", ()=>{
+test("get the name with getName function", ()=>{
   const name = "gonzo";
   const e = new Employee(name);
   
   expect(e.getName()).toBe(name);
+})
+
+test("get the ID with getId function", ()=>{
+  const valor = 1;
+  const e = new Employee("gonzo",valor);
+  
+  expect(e.getId()).toBe(valor);
 })
