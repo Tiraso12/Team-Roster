@@ -40,3 +40,10 @@ test("get the ID with getId function", ()=>{
   
   expect(e.getId()).toBe(valor);
 })
+
+test("get the Email with getEmail function", ()=>{
+  const valor = "gonzo@gmail.com";
+  const e = new Employee("gonzo",1, valor);
+  
+  expect(e.getEmail()).toBe(valor);
+})
