@@ -2,6 +2,17 @@
 const inquirer = require('inquirer');
 
 
+//classes imported
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
+//const for storing the objects
+
+const team = [];
+const ids= [];
+
+
 function startApp() {
     console.log(
         `==================================================
@@ -10,6 +21,7 @@ function startApp() {
      `);
 
     function createManager() {
+
         //prompts for the manager
         inquirer.prompt([
             {
@@ -26,12 +38,12 @@ function startApp() {
             {
                 type: "input",
                 name: "managerId",
-                message: "What is the Manager's ID number?",
-                validate: managerId => {
-                    if (managerId) {
+                message: "What is the Manager's ID 'NUMBER'?",
+                validate: answer => {
+                    if (answer) {
                         return true;
                     }
-                    return "Please enter an ID number";
+                    return "Please enter a NUMBER";
                 }
             },
             {
@@ -57,8 +69,10 @@ function startApp() {
                 }
             }
         ]).then(answers => {
-            console.log(answers);
-
+            const manager = new Manager(answers.managerName,answers.managerId, answers.managerEmail, answers.managerOffice);
+            team.push(manager)
+            ids.push(answers.managerId)
+            console.log(team);
             choiceTeam();
         });  
     }
@@ -143,7 +157,9 @@ function startApp() {
                 }
             }
         ]).then(answers => {
-            console.log(answers);
+            const engineer = new Engineer(answers.engineerName,answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            team.push(engineer)
+            ids.push(answers.engineerId);
             choiceTeam();
         })
     };
@@ -200,6 +216,9 @@ function startApp() {
             }
         ]).then(answers => {
             console.log(answers);
+            const intern = new Intern(answers.internName,answers.internId, answers.internEmail, answers.internSchool);
+            team.push(intern)
+            ids.push(answers.internId);
             choiceTeam();
         })
     }
