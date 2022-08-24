@@ -1,16 +1,18 @@
 //NPM needed for the app
 const inquirer = require('inquirer');
+const fs = require('fs');
+const pageRender= require('./src/page-template');
 
 
 //classes imported
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const { log } = require('console');
 
 //const for storing the objects
 
-const team = [];
-const ids= [];
+const teamArray = [];
 
 
 function startApp() {
@@ -70,9 +72,7 @@ function startApp() {
             }
         ]).then(answers => {
             const manager = new Manager(answers.managerName,answers.managerId, answers.managerEmail, answers.managerOffice);
-            team.push(manager)
-            ids.push(answers.managerId)
-            console.log(team);
+            teamArray.push(manager)
             choiceTeam();
         });  
     }
@@ -100,7 +100,7 @@ function startApp() {
                     createInter();
                     break;
                 default:
-                    break;
+                    buildTeam();
             }
         })
     }
@@ -158,8 +158,7 @@ function startApp() {
             }
         ]).then(answers => {
             const engineer = new Engineer(answers.engineerName,answers.engineerId, answers.engineerEmail, answers.engineerGithub);
-            team.push(engineer)
-            ids.push(answers.engineerId);
+            teamArray.push(engineer)
             choiceTeam();
         })
     };
@@ -215,14 +214,19 @@ function startApp() {
                 }
             }
         ]).then(answers => {
-            console.log(answers);
             const intern = new Intern(answers.internName,answers.internId, answers.internEmail, answers.internSchool);
-            team.push(intern)
-            ids.push(answers.internId);
+            teamArray.push(intern)
             choiceTeam();
         })
     }
 
+
+    function buildTeam(){
+        fs.writeFileSync('./dist/index.html', pageRender(teamArray), (err)=>{
+            if(err) throw err;
+            console.log('The team app have been created! visit the dist folder');
+        })
+    }
 
     createManager()
 }
