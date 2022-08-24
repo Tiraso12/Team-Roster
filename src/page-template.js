@@ -30,7 +30,7 @@ const createTeam = buildTeamCards => {
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item">ID: ${engineer.getId}</li>
+                                <li class="list-group-item">ID: ${engineer.getId()}</li>
                                 <li class="list-group-item">Email:<a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
                                 <li class="list-group-item">Github:${engineer.getGithub()}</li>
                             </ul>
@@ -50,8 +50,8 @@ const createTeam = buildTeamCards => {
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">ID:${intern.getId()}</li>
-                                <li class="list-group-item">Email:<a href="mailto:${intern.getEmail}">${intern.getEmail}</a></li>
-                                <li class="list-group-item">School:${intern.getSchool}</li>
+                                <li class="list-group-item">Email:<a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                                <li class="list-group-item">School:${intern.getSchool()}</li>
                             </ul>
                         </div>
                     </div>
