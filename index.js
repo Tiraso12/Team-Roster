@@ -85,18 +85,17 @@ function startApp() {
                 name: "memberChoice",
                 message: "Which member would you like to add to the team?",
                 choices: [
-                    "Enginer",
-                    "Inter",
+                    "Engineer",
+                    "Intern",
                     "Finish Building my Team"
                 ]
             }
         ]).then(userSelection => {
-            console.log(userSelection);
             switch (userSelection.memberChoice) {
-                case "Enginer":
+                case "Engineer":
                     createEngineer();
                     break;
-                case "Inter":
+                case "Intern":
                     createInter();
                     break;
                 default:
