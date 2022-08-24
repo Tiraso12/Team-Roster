@@ -183,7 +183,7 @@ function startApp() {
             },
             {
                 type: "input",
-                name: "interId",
+                name: "internId",
                 message: "Please provide an intern ID",
                 validate: internName => {
                     if (internName) {
