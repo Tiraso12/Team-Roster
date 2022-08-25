@@ -11,9 +11,9 @@ const createTeam = buildTeamCards => {
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item">ID:${manager.getId()}</li>
-                                <li class="list-group-item">Email:<a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                                <li class="list-group-item">Office number:${manager.getOfficeNumber()}</li>
+                                <li class="list-group-item">ID: M${manager.getId()}</li>
+                                <li class="list-group-item">Email:<a href="mailto: ${manager.getEmail()}">${manager.getEmail()}</a></li>
+                                <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
                             </ul>
                         </div>
                     </div>
@@ -26,13 +26,13 @@ const createTeam = buildTeamCards => {
         <div class="card  m-3">
                         <div class="card-header bg-primary text-white">
                             <h3>${engineer.getName()}</h3>
-                            <h4><i class="bi bi-eyeglasses"></i>${engineer.getRole()}</h4>
+                            <h4><i class="bi bi-eyeglasses"></i> ${engineer.getRole()}</h4>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item">ID: ${engineer.getId()}</li>
-                                <li class="list-group-item">Email:<a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                                <li class="list-group-item">Github:${engineer.getGithub()}</li>
+                                <li class="list-group-item">ID: E${engineer.getId()}</li>
+                                <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                                <li class="list-group-item">Github: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</li>
                             </ul>
                         </div>
                     </div>
@@ -45,11 +45,11 @@ const createTeam = buildTeamCards => {
         <div class="card  m-3">
                         <div class="card-header bg-primary text-white">
                             <h3>${intern.getName()}</h3>
-                            <h4><i class="bi bi-mortarboard"></i>${intern.getRole()}</h4>
+                            <h4><i class="bi bi-mortarboard"></i> ${intern.getRole()}</h4>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item">ID:${intern.getId()}</li>
+                                <li class="list-group-item">ID: I${intern.getId()}</li>
                                 <li class="list-group-item">Email:<a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
                                 <li class="list-group-item">School:${intern.getSchool()}</li>
                             </ul>
