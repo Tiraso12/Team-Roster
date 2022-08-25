@@ -10,6 +10,8 @@
 This project is a command-line application that creates a team profile displaying cards, allowing users to see informatio for contact, and profiles of each one.
 
 [link to the video walkthrough right here!](https://youtu.be/0LNY2_gR0B4)
+
+[view the html clicking here!](/dist/index.html)
  
 ## Table of Content
 - [Installation](#installation)
