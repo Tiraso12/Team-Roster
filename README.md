@@ -11,7 +11,7 @@ This project is a command-line application that creates a team profile displayin
 
 [link to the video walkthrough right here!](https://youtu.be/0LNY2_gR0B4)
 
-[view the html clicking here!](/dist/index.html)
+![Screenshot of output](/assets/img/127.0.0.1_5500_dist_index.html.png)
  
 ## Table of Content
 - [Installation](#installation)

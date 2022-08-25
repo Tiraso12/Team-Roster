@@ -80,7 +80,7 @@ const createTeam = buildTeamCards => {
 
 module.exports = buildTeamCards =>{
     return `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
